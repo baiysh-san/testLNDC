@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".TypeActivity" />
+        <activity android:name=".RollActivity" />
+        <activity android:name=".DiceListActivity" />
+        <activity android:name=".CreateNumericActivity"></activity>
     </application>
 
 </manifest>
