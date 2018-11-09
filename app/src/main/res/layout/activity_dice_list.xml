@@ -6,4 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".DiceListActivity">
 
+    <GridView
+        android:layout_width="368dp"
+        android:layout_height="523dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:numColumns="2"
+        />
 </android.support.constraint.ConstraintLayout>
