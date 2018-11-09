@@ -10,5 +10,6 @@ public class Test {
             System.out.println(side);
         }
         System.out.println(((NumericDice) dice).getRandomSide());
+        //test
     }
 }
