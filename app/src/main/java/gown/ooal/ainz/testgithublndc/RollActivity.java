@@ -8,14 +8,18 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class RollActivity extends AppCompatActivity {
     private SensorManager mSensorManager;
     private float mAccel; // acceleration apart from gravity
     private float mAccelCurrent; // current acceleration including gravity
     private float mAccelLast; // last acceleration including gravity
-
+    private Spinner diceSpinner;
 
 
     @Override
@@ -33,6 +37,7 @@ public class RollActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_roll);
         Intent intent = getIntent();
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
@@ -40,7 +45,17 @@ public class RollActivity extends AppCompatActivity {
         mAccelCurrent = SensorManager.GRAVITY_EARTH;
         mAccelLast = SensorManager.GRAVITY_EARTH;
 
-        setContentView(R.layout.activity_roll);
+        diceSpinner = findViewById(R.id.spinner_r_choose);
+        ArrayList<String> diceNames = new ArrayList<>();
+        for (Dice dice: DiceList.getDices()) {
+            diceNames.add(dice.getName());
+        }
+
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, diceNames);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        diceSpinner.setAdapter(adapter);
+
     }
     private final SensorEventListener mSensorListener = new SensorEventListener() {
 
