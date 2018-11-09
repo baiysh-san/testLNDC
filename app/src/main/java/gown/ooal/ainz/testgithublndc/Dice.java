@@ -7,6 +7,7 @@ import java.util.Random;
 public class Dice {
     private String name;
     private List<Integer> sides;
+    private int randomSide;
 
     public Dice(String name, int sidesNumber) {
         this.name = name;
@@ -28,10 +29,12 @@ public class Dice {
     }
     public int getRandomSide() {
         Random random = new Random();
-        int randomSide = sides.get(random.nextInt(sides.size()));
+        randomSide = sides.get(random.nextInt(sides.size()));
         return randomSide;
     }
     public List<Integer> getSides() {
         return sides;
     }
+
+
 }

@@ -15,4 +15,13 @@ public class DiceList {
     public static void removeDice(Dice dice) {
         dices.remove(dice);
     }
+    public static Dice getByName(String name) {
+        for (Dice dice:
+             dices) {
+            if (dice.getName().equals(name)) {
+                return dice;
+            }
+        }
+        return null;
+    }
 }
