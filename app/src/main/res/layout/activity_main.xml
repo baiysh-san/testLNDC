@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/button_roll"
+        android:id="@+id/button_m_roll"
         android:layout_width="323dp"
         android:layout_height="67dp"
         android:layout_marginStart="8dp"
