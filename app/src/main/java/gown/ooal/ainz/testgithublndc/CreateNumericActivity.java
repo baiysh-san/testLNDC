@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import static java.lang.Integer.parseInt;
+
 public class CreateNumericActivity extends AppCompatActivity {
     private Intent intentMain;
     private EditText nameEditText;
@@ -26,6 +28,9 @@ public class CreateNumericActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int sides = Integer.parseInt(sidesNumber.getText().toString());
+                Dice dice = new Dice(nameEditText.getText().toString(), sides);
+                DiceList.addDice(dice);
                 startActivity(intentMain);
             }
         });
