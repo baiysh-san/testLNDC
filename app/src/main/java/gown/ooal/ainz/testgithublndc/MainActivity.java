@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Intent intentCreate = new Intent(this, TypeActivity.class);
-        final Intent intentDiceList = new Intent(this, DiceListActivity.class);
+        //final Intent intentDiceList = new Intent(this, DiceListActivity.class);
+        final Intent intentDiceList = new Intent(this, TestCountActivity.class);
         final Intent intentRoll = new Intent(this, RollActivity.class);
 
         final Button button_create = findViewById(R.id.button_m_create);

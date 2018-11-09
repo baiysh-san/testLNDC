@@ -20,6 +20,7 @@
         <activity android:name=".TypeActivity" />
         <activity android:name=".RollActivity" />
         <activity android:name=".DiceListActivity" />
+        <activity android:name=".TestCountActivity" />
         <activity android:name=".CreateNumericActivity"></activity>
     </application>
 
