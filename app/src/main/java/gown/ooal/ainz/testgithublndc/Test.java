@@ -9,5 +9,6 @@ public class Test {
         for (int side: diceSides) {
             System.out.println(side);
         }
+        System.out.println(((NumericDice) dice).getRandomSide());
     }
 }

@@ -2,6 +2,7 @@ package gown.ooal.ainz.testgithublndc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class NumericDice extends Dice {
 
@@ -16,7 +17,11 @@ public class NumericDice extends Dice {
             sides.add(i);
         }
     }
-
+    public int getRandomSide() {
+        Random random = new Random();
+        int randomSide = sides.get(random.nextInt(sides.size()));
+        return randomSide;
+    }
     public List<Integer> getSides() {
         return sides;
     }
