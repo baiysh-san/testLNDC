@@ -15,4 +15,14 @@
         android:numColumns="2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/loadingPanel"
+        android:layout_width="168dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="76dp"
+        android:indeterminate="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
