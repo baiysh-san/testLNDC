@@ -1,10 +1,11 @@
 package gown.ooal.ainz.testgithublndc;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Dice {
+public class Dice implements Serializable {
     private String name;
     private List<Integer> sides;
     private int randomSide;

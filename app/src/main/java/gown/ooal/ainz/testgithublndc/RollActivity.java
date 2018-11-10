@@ -93,10 +93,9 @@ public class RollActivity extends AppCompatActivity {
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (Dice dice:
-                     rollDices) {
-                    System.out.println("Dice " + dice.getName() + " " + dice.getRandomSide());
-                }
+                Intent i = new Intent(RollActivity.this, RandomActivity.class);
+                i.putExtra("roll_dices", rollDices);
+                startActivity(i);
             }
         });
 

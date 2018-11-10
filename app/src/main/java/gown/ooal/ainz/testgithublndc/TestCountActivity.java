@@ -13,80 +13,69 @@ import java.util.Random;
 public class TestCountActivity extends AppCompatActivity {
     private TextView textView;
     private int count = 1;
-    private Thread t;
-    private boolean stop;
-    private boolean start = false;
-
+    private boolean randBool;
+    private Button startButton;
+    private Button stopButton;
+    private boolean startWasClicked;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        randBool = false;
+        startWasClicked = false;
         Intent intent = getIntent();
         setContentView(R.layout.activity_test_count);
-        Button button = findViewById(R.id.button_start);
-        Button button1 = findViewById(R.id.button_stop);
+        startButton = findViewById(R.id.button_start);
+        stopButton = findViewById(R.id.button_stop);
         textView = findViewById(R.id.text_test);
         textView.setText("24");
-        t = new Thread() {
-
+        final Thread thread = new Thread() {
             @Override
-            public void run(){
-                if(stop == true){
-                    return;
-                }
-                while(!isInterrupted()){
-
-                    try {
-                        Thread.sleep(100);  //1000ms = 1 sec
-
-                        runOnUiThread(new Runnable() {
-
-                            @Override
-                            public void run() {
-                                Random random = new Random();
-                                count = random.nextInt(24 - 1 + 1) + 1;
-                                textView.setText(String.valueOf(count));
-                            }
-                        });
-
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
+            public void run() {
+               try {
+                   while (!isInterrupted()) {
+                       Thread.sleep(100);
+                       runOnUiThread(new Runnable() {
+                           @Override
+                           public void run() {
+                               Random random = new Random();
+                               count = random.nextInt(24 - 1 + 1) + 1;
+                               textView.setText(String.valueOf(count));
+                           }
+                       });
+                   }
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
             }
         };
-
-
-        button.setOnClickListener(new View.OnClickListener() {
+        startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(start == true) {
-
+                if (!startWasClicked) {
+                    thread.start();
+                    startWasClicked = true;
                 } else {
-                    t.start();
-                    start = true;
+
                 }
-
-                //startCountAnimation();
-
             }
         });
-        button1.setOnClickListener(new View.OnClickListener() {
+        stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stop = true;
-                t.interrupt();
-
-                //startCountAnimation();
-
+                if (startWasClicked) {
+                    thread.interrupt();
+                }
             }
         });
 
 
-
-
-
+    }
+    public void  rollingLoop() {
+        while (randBool) {
+            Random random = new Random();
+            count = random.nextInt(24 - 1 + 1) + 1;
+            textView.setText(String.valueOf(count));
+        }
     }
     private void startCountAnimation() {
         ValueAnimator animator = ValueAnimator.ofInt(1, 6);
