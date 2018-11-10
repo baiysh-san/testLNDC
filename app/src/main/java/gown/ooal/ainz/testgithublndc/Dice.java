@@ -29,9 +29,11 @@ public class Dice implements Serializable {
         }
     }
     public int getRandomSide() {
+        return randomSide;
+    }
+    public void random() {
         Random random = new Random();
         randomSide = sides.get(random.nextInt(sides.size()));
-        return randomSide;
     }
     public List<Integer> getSides() {
         return sides;

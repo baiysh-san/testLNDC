@@ -47,6 +47,10 @@ public class RandomActivity extends AppCompatActivity {
         mAccelLast = SensorManager.GRAVITY_EARTH;
         if (extras != null) {
             rollDices = (ArrayList<Dice>)extras.get("roll_dices");
+            for (Dice dice:
+                 rollDices) {
+                dice.random();
+            }
         }
         for (Dice dice:
              rollDices) {
