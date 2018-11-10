@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,8 +27,11 @@ public class RollActivity extends AppCompatActivity {
     private Spinner diceSpinner;
     private Button addButton;
     private Button rollButton;
-    private List<Dice> rollDices;
+    private ArrayList<Dice> rollDices;
     private EditText amountEditText;
+    private GridView gridView;
+    private CustomGridViewAdapter customGridViewAdapter;
+
 
     @Override
     protected void onResume() {
@@ -66,6 +70,11 @@ public class RollActivity extends AppCompatActivity {
         addButton = findViewById(R.id.button_r_add);
         rollButton = findViewById(R.id.button_r_roll);
         amountEditText = findViewById(R.id.editText_r_amount);
+
+        gridView = findViewById(R.id.gridView1);
+        customGridViewAdapter = new CustomGridViewAdapter(this, R.layout.row_grid, rollDices);
+        gridView.setAdapter(customGridViewAdapter);
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

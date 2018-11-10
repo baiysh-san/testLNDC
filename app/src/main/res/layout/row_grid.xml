@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="102dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_qadrat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+    <TextView
+        android:id="@+id/item_text"
+        android:layout_width="85dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_image"></TextView>
+
+    <Button
+        android:id="@+id/button_number"
+        style="@android:style/Widget.Material.Light.Button.Borderless.Colored"
+        android:layout_width="85dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="22dp"
+        android:text="0"
+        android:textColor="@color/title"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
