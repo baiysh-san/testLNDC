@@ -21,6 +21,7 @@ public class RandomActivity extends AppCompatActivity {
     ArrayList<Dice> rollDices;
     private GridView gridView;
     private SecondGridViewAdapter customGridViewAdapter;
+    private int c = 0;
 
     @Override
     protected void onResume() {
@@ -66,9 +67,18 @@ public class RandomActivity extends AppCompatActivity {
             mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
             float delta = mAccelCurrent - mAccelLast;
             mAccel = mAccel * 0.9f + delta; // perform low-cut filter
-            if (mAccel > 12) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
-                toast.show();
+
+            if(mAccel < 3) {
+                c++;
+            }
+            if(mAccel > 12){
+                c--;
+                c = c--;
+            }
+            if (mAccel > 30 ) {
+                //Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
+                //toast.show();
+
                 findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                 gridView.setVisibility(View.VISIBLE);
             }
